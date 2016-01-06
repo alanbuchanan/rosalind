@@ -5,6 +5,7 @@ import fs from 'fs'
 describe('Counting DNA Nucleotides', () => {
     it('should return four integers (separated by spaces) counting the respective number of times that the symbols \'A\', \'C\', \'G\', and \'T\' occur.', (done) => {
         fs.readFile('txt/1.txt', 'utf-8', (err, data) => {
+            if (err) throw (err)
             expect(lib.countDNANucleotides(data)).to.be.equal('20 12 17 21')
             done()
         })
@@ -14,6 +15,7 @@ describe('Counting DNA Nucleotides', () => {
 describe('Transcribing DNA into RNA', () => {
     it('should return a transcribed RNA string.', (done) => {
         fs.readFile('txt/2.txt', 'utf-8', (err, data) => {
+            if (err) throw (err)
             expect(lib.transcribingDNAtoRNA(data)).to.be.equal('GAUGGAACUUGACUACGUAAAUU')
             done()
         })
